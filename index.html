@@ -23,127 +23,153 @@
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased; /* 字体抗锯齿，让手机显示更清晰 */
         }
 
         /* --- 上半部分：品牌展示区 --- */
         .hero-section {
-            padding: 80px 20px;
+            padding: 60px 20px; /* 减小顶部间距，适应手机屏幕高度 */
             text-align: center;
             background: radial-gradient(circle at top, var(--sea-sky-cyan) 0%, var(--midnight-black) 70%);
         }
 
         .brand-logo {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
         }
         
-        /* DPark 全部使用纯白艺术字体 */
+        /* DPark 艺术字体 */
         .brand-logo .dpark-art { 
             font-family: 'Dancing Script', cursive; 
-            font-size: 5.5rem; 
+            font-size: 5rem; /* 稍微缩小一点，防止在小屏幕溢出 */
             font-weight: 700;
             color: #FFFFFF;
             letter-spacing: 2px;
+            line-height: 1;
         }
 
         .hero-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem; /* 移动端标题稍微缩小 */
             color: var(--accent-gold);
-            letter-spacing: 4px;
+            letter-spacing: 2px;
             margin-bottom: 15px;
             font-weight: 600;
         }
 
         .hero-promise {
-            max-width: 700px;
-            margin: 0 auto 50px;
+            max-width: 600px;
+            margin: 0 auto 40px;
             color: var(--text-dim);
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 300;
         }
 
         /* 四个深度网格 */
         .depth-grid {
-            max-width: 1100px;
-            margin: 0 auto 60px;
+            max-width: 1000px;
+            margin: 0 auto 40px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* 优化网格自适应 */
+            gap: 15px;
         }
 
         .depth-card {
             background: var(--card-bg);
             border: 1px solid rgba(197, 163, 101, 0.15);
-            padding: 30px 20px;
-            border-radius: 15px;
+            padding: 25px 20px;
+            border-radius: 12px;
             transition: transform 0.3s ease;
+            text-align: left;
         }
 
-        .depth-card h3 { color: var(--accent-gold); margin-bottom: 12px; font-size: 1.2rem; }
-        .depth-card p { font-size: 0.9rem; color: var(--text-dim); text-align: justify; }
+        .depth-card h3 { color: var(--accent-gold); margin-bottom: 10px; font-size: 1.1rem; }
+        .depth-card p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; }
 
-        /* 品牌宣言 */
+        /* 品牌宣言 - 重点修改区域 */
         .manifesto {
-            padding: 60px 20px;
+            padding: 40px 20px;
             background: rgba(255,255,255,0.02);
-            margin-bottom: 80px;
+            margin-bottom: 60px;
+            border-radius: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .manifesto-text { font-size: 1.4rem; font-weight: 200; line-height: 2.2; }
-        .manifesto-text b { color: var(--accent-gold); font-weight: 600; }
+        
+        .manifesto-text { 
+            font-size: 1.1rem; /* 字体调小，更精致 */
+            font-weight: 300; 
+            line-height: 2; 
+            color: var(--text-main);
+        }
+        .manifesto-text b { color: var(--accent-gold); font-weight: 700; }
 
         /* --- 下半部分：RSVP 交互区 --- */
         .form-section {
-            max-width: 600px;
-            margin: 0 auto 100px;
-            padding: 40px;
+            max-width: 500px;
+            margin: 0 auto 80px;
+            padding: 30px 20px;
             background: linear-gradient(145deg, #0a1428, #05080f);
-            border-radius: 24px;
+            border-radius: 20px;
             border: 1px solid rgba(197, 163, 101, 0.3);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .form-header { text-align: center; margin-bottom: 35px; }
-        .form-header h2 { font-size: 1.6rem; letter-spacing: 2px; color: var(--accent-gold); margin-bottom: 8px; }
-        .form-header p { font-size: 0.9rem; color: var(--text-dim); }
+        .form-header { text-align: center; margin-bottom: 30px; }
+        .form-header h2 { font-size: 1.4rem; letter-spacing: 1px; color: var(--accent-gold); margin-bottom: 8px; }
+        .form-header p { font-size: 0.85rem; color: var(--text-dim); }
 
-        .form-group { margin-bottom: 25px; text-align: left; }
+        .form-group { margin-bottom: 20px; text-align: left; }
         .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: #fff; opacity: 0.8; }
         
         input[type="text"], input[type="tel"], select {
             width: 100%;
-            padding: 15px;
+            padding: 12px 15px; /* 优化点击区域 */
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            border-radius: 8px;
             color: #fff;
-            font-size: 1rem;
+            font-size: 0.95rem;
             outline: none;
             transition: border-color 0.3s;
+            font-family: inherit;
         }
 
         input:focus, select:focus { border-color: var(--accent-gold); background: rgba(255, 255, 255, 0.08); }
 
         .submit-btn {
             width: 100%;
-            padding: 18px;
+            padding: 15px;
             background: var(--accent-gold);
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             color: var(--midnight-black);
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
             margin-top: 10px;
+            font-family: inherit;
         }
 
-        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(197, 163, 101, 0.4); opacity: 0.9; }
+        .submit-btn:active { transform: scale(0.98); opacity: 0.9; } /* 手机端点击效果 */
 
-        footer { text-align: center; padding-bottom: 50px; color: rgba(255,255,255,0.2); font-size: 0.8rem; }
+        footer { text-align: center; padding-bottom: 40px; color: rgba(255,255,255,0.2); font-size: 0.75rem; }
 
+        /* --- 移动端专属优化 --- */
         @media (max-width: 600px) {
-            .brand-logo .dpark-art { font-size: 4.5rem; }
-            .form-section { margin: 0 20px 100px; padding: 30px 20px; }
+            .hero-section { padding: 40px 15px; }
+            
+            .brand-logo .dpark-art { font-size: 3.8rem; } /* 手机端 Logo 更小 */
+            
+            .hero-title { font-size: 1.3rem; }
+            
+            .manifesto { padding: 30px 15px; margin-bottom: 40px; }
+            .manifesto-text { font-size: 1rem; line-height: 1.8; } /* 宣言文字进一步微调 */
+
+            .form-section { margin: 0 15px 60px; padding: 25px 15px; }
+            
+            .depth-grid { grid-template-columns: 1fr; gap: 15px; } /* 手机端卡片变为单列 */
         }
     </style>
 </head>
