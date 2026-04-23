@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPark | 深度生活的全场景入口</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --midnight-black: #05080f; /* 极夜黑 */
+            --sea-sky-cyan: #12284c;   /* 海天青 */
+            --accent-gold: #C5A365;   /* 核心金 */
+            --text-main: #FFFFFF;
+            --text-dim: #A0B0C5;
+            --card-bg: rgba(18, 40, 76, 0.35);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'PingFang SC', 'Montserrat', sans-serif;
+            background-color: var(--midnight-black);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- 上半部分：品牌展示区 --- */
+        .hero-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: radial-gradient(circle at top, var(--sea-sky-cyan) 0%, var(--midnight-black) 70%);
+        }
+
+        .brand-logo {
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+        }
+        
+        /* DPark 全部使用纯白艺术字体 */
+        .brand-logo .dpark-art { 
+            font-family: 'Dancing Script', cursive; 
+            font-size: 5.5rem; 
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: 2px;
+        }
+
+        .hero-title {
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero-promise {
+            max-width: 700px;
+            margin: 0 auto 50px;
+            color: var(--text-dim);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        /* 四个深度网格 */
+        .depth-grid {
+            max-width: 1100px;
+            margin: 0 auto 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .depth-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(197, 163, 101, 0.15);
+            padding: 30px 20px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .depth-card h3 { color: var(--accent-gold); margin-bottom: 12px; font-size: 1.2rem; }
+        .depth-card p { font-size: 0.9rem; color: var(--text-dim); text-align: justify; }
+
+        /* 品牌宣言 */
+        .manifesto {
+            padding: 60px 20px;
+            background: rgba(255,255,255,0.02);
+            margin-bottom: 80px;
+        }
+        .manifesto-text { font-size: 1.4rem; font-weight: 200; line-height: 2.2; }
+        .manifesto-text b { color: var(--accent-gold); font-weight: 600; }
+
+        /* --- 下半部分：RSVP 交互区 --- */
+        .form-section {
+            max-width: 600px;
+            margin: 0 auto 100px;
+            padding: 40px;
+            background: linear-gradient(145deg, #0a1428, #05080f);
+            border-radius: 24px;
+            border: 1px solid rgba(197, 163, 101, 0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .form-header { text-align: center; margin-bottom: 35px; }
+        .form-header h2 { font-size: 1.6rem; letter-spacing: 2px; color: var(--accent-gold); margin-bottom: 8px; }
+        .form-header p { font-size: 0.9rem; color: var(--text-dim); }
+
+        .form-group { margin-bottom: 25px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: #fff; opacity: 0.8; }
+        
+        input[type="text"], input[type="tel"], select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus { border-color: var(--accent-gold); background: rgba(255, 255, 255, 0.08); }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--accent-gold);
+            border: none;
+            border-radius: 10px;
+            color: var(--midnight-black);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(197, 163, 101, 0.4); opacity: 0.9; }
+
+        footer { text-align: center; padding-bottom: 50px; color: rgba(255,255,255,0.2); font-size: 0.8rem; }
+
+        @media (max-width: 600px) {
+            .brand-logo .dpark-art { font-size: 4.5rem; }
+            .form-section { margin: 0 20px 100px; padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <div class="brand-logo">
+            <span class="dpark-art">DPark</span>
+        </div>
+        <h1 class="hero-title">深度生活的全场景入口</h1>
+        <p class="hero-promise">我们不只是提供一个深潜和多元运动综合体，更是为都市人打开一扇通往深度生活的大门。</p>
+
+        <div class="depth-grid">
+            <div class="depth-card">
+                <h3>空间有深度</h3>
+                <p>24米专业深潜池，配合智能光影系统，营造真实的深海体验。星光之下融合深潜呼吸法。</p>
+            </div>
+            <div class="depth-card">
+                <h3>产品有深度</h3>
+                <p>以深潜为核心，融合攀岩、冥想、球类运动的多元运动生态，打造完整的深度成长路径。</p>
+            </div>
+            <div class="depth-card">
+                <h3>体验有深度</h3>
+                <p>垂直空间融合餐饮零售、运动康复、休憩住宿等功能，让产品体验更加完善、连接更加自然。</p>
+            </div>
+            <div class="depth-card">
+                <h3>连接有深度</h3>
+                <p>基于共同价值观的社群聚落，定期组织深潜、攀岩、骑行等活动，让每一次相遇都有意义。</p>
+            </div>
+        </div>
+
+        <div class="manifesto">
+            <div class="manifesto-text">
+                在这个浅薄的时代，我们选择<b>深度</b>。<br>
+                在这个喧嚣的世界，我们创造<b>宁静</b>。<br>
+                在这个孤独的都市，我们建立<b>连接</b>。
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="form-header">
+            <h2>RSVP 嘉宾意向回执</h2>
+            <p>2027.04.01 | 临港滴水湖星空之境公园</p>
+        </div>
+
+        <form action="#" onsubmit="alert('感谢您的预约！我们会尽快与您联系。'); return false;">
+            <div class="form-group">
+                <label>姓名 / Full Name</label>
+                <input type="text" placeholder="请输入您的姓名" required>
+            </div>
+
+            <div class="form-group">
+                <label>联系方式 / Contact Number</label>
+                <input type="tel" placeholder="请输入手机号码" required>
+            </div>
+
+            <div class="form-group">
+                <label>是否出席 / Attendance</label>
+                <select required>
+                    <option value="" disabled selected>请选择出席状态</option>
+                    <option value="yes">确认出席 / Yes, I will attend</option>
+                    <option value="no">遗憾缺席 / No, I cannot make it</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-btn">潜入深境 · 确认回执</button>
+        </form>
+    </section>
+
+    <footer>
+        &copy; 2027 DPark Super Sports Center. All rights reserved.
+    </footer>
+
+</body>
+</html>
