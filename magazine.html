@@ -28,6 +28,7 @@
 
         h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; letter-spacing: 0.05em; }
 
+        /* 导航栏 */
         header {
             display: flex;
             justify-content: space-between;
@@ -61,6 +62,7 @@
         }
         nav a:hover, nav a.active { color: #fff; }
 
+        /* 首屏 Hero */
         .hero {
             height: 100vh;
             display: flex;
@@ -83,17 +85,32 @@
         .hero h1 { font-size: 5rem; font-weight: 300; line-height: 1.2; margin-bottom: 20px; }
         .hero p { font-size: 1rem; color: var(--text-muted); max-width: 600px; font-weight: 300; }
 
+        /* 通用板块布局 */
         section { padding: 140px 10%; }
         .section-header { margin-bottom: 100px; }
         .section-title { font-size: 3.5rem; font-weight: 300; margin-bottom: 15px; }
         .section-subtitle { font-size: 0.8rem; color: var(--abyss-teal); letter-spacing: 6px; text-transform: uppercase; }
 
-        .feature-article { display: flex; align-items: flex-start; margin-bottom: 200px; gap: 80px; }
+        /* 文章详情排版：优化图片容器 */
+        .feature-article { display: flex; align-items: center; margin-bottom: 200px; gap: 80px; }
         .feature-article.reverse { flex-direction: row-reverse; }
         
-        .feature-visual { flex: 1.2; aspect-ratio: 4/5; overflow: hidden; background: var(--card-bg); }
-        .feature-visual img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); transition: 2s; }
-        .feature-article:hover img { transform: scale(1.05); filter: grayscale(0%); }
+        .feature-visual { 
+            flex: 1.2; 
+            aspect-ratio: 4 / 3; 
+            overflow: hidden; 
+            background: var(--card-bg);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+        .feature-visual img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            filter: grayscale(30%); 
+            transition: 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+            display: block;
+        }
+        .feature-article:hover img { transform: scale(1.08); filter: grayscale(0%); }
 
         .feature-text { flex: 1; }
         .feature-text h4 { font-size: 0.75rem; color: var(--abyss-teal); letter-spacing: 4px; margin-bottom: 25px; }
@@ -104,6 +121,7 @@
         .meta-item span { display: block; font-size: 0.6rem; color: var(--abyss-teal); letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; }
         .meta-item strong { font-size: 1.1rem; font-weight: 300; }
 
+        /* 联合特企卡片 */
         .events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .event-card {
             border: 1px solid rgba(255,255,255,0.05);
@@ -115,6 +133,7 @@
         .event-card h3 { font-size: 1.6rem; font-weight: 400; margin-bottom: 25px; line-height: 1.4; }
         .event-card p { font-size: 0.9rem; color: var(--text-muted); }
 
+        /* 通票板块 */
         .pass-container { display: flex; gap: 40px; }
         .pass-card {
             flex: 1;
@@ -155,6 +174,7 @@
 
         @media (max-width: 1024px) {
             .feature-article, .feature-article.reverse, .events-grid, .pass-container { flex-direction: column; }
+            .hero h1 { font-size: 3.5rem; }
         }
     </style>
 </head>
@@ -172,7 +192,7 @@
     <div class="hero">
         <div class="issue-tag">Vol. 01 / DIGITAL LANDSCAPE</div>
         <h1>重塑地理边界</h1>
-        <p>在临港，空间被赋予了新的哲学高度。这是一场关于勇气、知识与感官重构的深度指南。</p>
+        <p>从微观的生物共生到宏观的宇宙演化。在临港，空间被赋予了新的哲学高度。这是一场关于勇气、知识与感官重构的深度指南。</p>
     </div>
 
     <section id="landmarks">
@@ -182,7 +202,9 @@
         </div>
 
         <article class="feature-article">
-            <div class="feature-visual"><img src="Deepark.png" alt="Deepark"></div>
+            <div class="feature-visual">
+                <img src="Deepark.png" alt="深境公园 · DEEPark">
+            </div>
             <div class="feature-text">
                 <h4>01 / 极限深度与运动磁场</h4>
                 <h3>深境公园 · DEEPark</h3>
@@ -196,7 +218,9 @@
         </article>
 
         <article class="feature-article reverse">
-            <div class="feature-visual"><img src="Planet.png" alt="Planetarium"></div>
+            <div class="feature-visual">
+                <img src="Planet.png" alt="上海天文馆">
+            </div>
             <div class="feature-text">
                 <h4>02 / 凝视光年之外</h4>
                 <h3>上海天文馆</h3>
@@ -210,12 +234,14 @@
         </article>
 
         <article class="feature-article">
-            <div class="feature-visual"><img src="Snowworld.png" alt="Snow World"></div>
+            <div class="feature-visual">
+                <img src="Snowworld.png" alt="耀雪冰雪世界">
+            </div>
             <div class="feature-text">
                 <h4>03 / 打破维度的冰雪绿洲</h4>
                 <h3>耀雪冰雪世界</h3>
                 <p>在临港的湿热空气中，耀雪世界以一种超现实的工程硬核感，划出了一道永恒的凛冬界限。这不仅是上海第一座真正意义上的旗舰级室内雪场，更是一座全天候的阿尔卑斯沉浸式生态村。</p>
-                <p>其巨大的内部跨度挑战了重工业美学的极限，多条专业级别雪道垂直落差巨大，精准还原了雪山滑行带来的多巴胺冲击。通过极致的温控与人工造雪技术，耀雪为都市人提供了一个随时可以遁入的平行世界。</p>
+                <p>其巨大的内部跨度挑战了重工业美学的极限，多条专业级别雪道垂直落差巨大，精准还原了雪山滑行带来的多巴胺冲击。这里不再受季节更替的束缚，通过极致的温控与人工造雪技术，耀雪为都市人提供了一个随时可以遁入的平行世界，它是对“维度挑战”最生动的诠释。</p>
                 <div class="feature-meta">
                     <div class="meta-item"><span>Capability</span><strong>Infinite Winter</strong></div>
                     <div class="meta-item"><span>Structure</span><strong>Giant Span Steel</strong></div>
@@ -224,12 +250,14 @@
         </article>
 
         <article class="feature-article reverse">
-            <div class="feature-visual"><img src="Ocean%20park.png" alt="Ocean Park"></div>
+            <div class="feature-visual">
+                <img src="Ocean park.png" alt="海昌海洋公园">
+            </div>
             <div class="feature-text">
                 <h4>04 / 生命与深渊的对话</h4>
                 <h3>海昌海洋公园</h3>
                 <p>海昌海洋公园是临港蓝色文明的策源地，它以极地探索与海洋科普为基石，构建了一个连接人类与广袤深海的桥梁。从虎鲸的壮丽掠影到南极企鹅的生命张力，这里呈现的是一个生生不息的物种矩阵。</p>
-                <p>随着数字化升级，海昌更通过沉浸式全息投影与智能交互剧场，将海洋知识转化为触手可及的感官实验。它的意义早已超越了主题乐园，而是一个关于生命敬畏、海洋保护与生态未来的教育中心。</p>
+                <p>随着数字化升级，海昌更通过沉浸式全息投影与智能交互剧场，将海洋知识转化为触手可及的感官实验。它的意义早已超越了主题乐园，而是一个关于生命敬畏、海洋保护与生态未来的教育中心。在蔚蓝的幕墙背后，是临港对地球生命多样性最深情的致敬。</p>
                 <div class="feature-meta">
                     <div class="meta-item"><span>Biology</span><strong>Marine Biodiversity</strong></div>
                     <div class="meta-item"><span>Impact</span><strong>Eco-Educational</strong></div>
@@ -265,32 +293,32 @@
     <section id="pass">
         <div class="section-header" style="text-align: center;">
             <h2 class="section-title">探索密钥</h2>
-            <div class="section-subtitle">Select Your Access</div>
+            <div class="section-subtitle">All-Inclusive Pass</div>
         </div>
         <div class="pass-container">
             <div class="pass-card">
                 <h3>Discovery</h3>
                 <div class="pass-price">¥1,280 <span>/ Person</span></div>
                 <ul class="pass-features">
-                    <li>· 四大地标标准单次门票</li>
-                    <li>· 区域专属巴士穿梭服务</li>
-                    <li>· 48小时内有效</li>
+                    <li>四大地标标准单次门票</li>
+                    <li>全域智能巴士无限次乘坐</li>
+                    <li>专属数字杂志首期副本</li>
                 </ul>
-                <br><a href="#" class="btn">Purchase</a>
+                <a href="#" class="btn">Explore Now</a>
             </div>
 
             <div class="pass-card featured">
-                <div class="event-label" style="position:absolute; top:20px; right:20px; margin:0;">Recommended</div>
+                <div class="event-label" style="position:absolute; top:20px; right:20px;">Limited Edition</div>
                 <h3>Ultimate Deep</h3>
                 <div class="pass-price">¥2,580 <span>/ Person</span></div>
                 <ul class="pass-features">
-                    <li>· <strong>72小时全域地标无限次通行</strong></li>
-                    <li>· DEEPark 专业私教 1V1 深潜</li>
-                    <li>· 上海天文馆 VIP 免排队通道</li>
-                    <li>· 耀雪世界全套雪具租赁</li>
-                    <li>· 海昌公园人鱼剧场尊享位</li>
+                    <li><strong>72小时全域地标无限次通行</strong></li>
+                    <li>DEEPark 专业私教 1V1 深潜</li>
+                    <li>上海天文馆 VIP 免排队通道</li>
+                    <li>耀雪世界高级雪具尊享套装</li>
+                    <li>海昌公园企鹅餐厅定制晚餐</li>
                 </ul>
-                <br><a href="#" class="btn" style="background:var(--abyss-teal); color:var(--midnight-black);">Upgrade Now</a>
+                <a href="#" class="btn" style="background:var(--abyss-teal); color:var(--midnight-black);">Get Access</a>
             </div>
         </div>
     </section>
