@@ -4,38 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DEEP JOURNAL | 临港数字探索杂志 - 创刊号</title>
+    <!-- 引入高级排版字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        /* ==========================================================================
-           基础重置与迪普蓝色彩系统 (DEEP BLUE COLOR SYSTEM)
-           ========================================================================== */
+        /* 基础重置与色彩系统 */
         :root {
-            --midnight-black: #05060A; /* 子夜黑 - 极深底色 */
-            --void-blue: #0D194A;      /* 迪普蓝 - 核心主色 */
-            --marine-cyan: #073B57;    /* 海天青 - 深度过渡 */
-            --abyss-teal: #408F9A;     /* 海渊青 - 高能点缀/原迪普青 */
-            --cosmic-grey: #1D1F26;    /* 星云灰 - 模块背景 */
+            --midnight-black: #05060A;
+            --void-blue: #0D194A;
+            --marine-cyan: #073B57;
+            --abyss-teal: #408F9A;
+            --cosmic-grey: #1D1F26;
             --text-main: #F4F5F7;
             --text-muted: #A3A6A9;
-            --accent-gold: #D4AF37;    /* 杂志特有高级点缀色 */
+            --accent-gold: #D4AF37;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--midnight-black);
             color: var(--text-main);
+            font-family: 'Montserrat', 'PingFang SC', sans-serif;
             line-height: 1.8;
             overflow-x: hidden;
         }
 
-        /* ==========================================================================
-           导航与首屏 (Navigation & Hero)
-           ========================================================================== */
+        h1, h2, h3, h4, .logo {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+        }
+
+        /* 导航栏 */
         header {
             display: flex;
             justify-content: space-between;
@@ -47,120 +45,86 @@
             top: 0;
             z-index: 100;
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
         }
 
         .logo {
             font-size: 26px;
-            font-weight: 900;
-            letter-spacing: 3px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
         }
-
-        .logo span {
-            color: var(--abyss-teal);
-            font-weight: 300;
-        }
+        .logo span { color: var(--abyss-teal); font-style: italic; }
 
         nav a {
             color: var(--text-muted);
             text-decoration: none;
-            margin-left: 35px;
-            font-size: 13px;
-            letter-spacing: 1px;
+            margin-left: 30px;
+            font-size: 12px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
         }
+        nav a:hover, nav a.active { color: var(--accent-gold); }
 
-        nav a:hover, nav a.active {
-            color: var(--text-main);
-            border-bottom: 2px solid var(--abyss-teal);
-            padding-bottom: 5px;
-        }
-
+        /* 首屏 Hero */
         .hero {
-            height: 90vh;
+            height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(to bottom, rgba(13, 25, 74, 0.4), var(--midnight-black)), 
-                        radial-gradient(circle at center, var(--marine-cyan) 0%, #000 80%);
+            background: linear-gradient(to bottom, rgba(13, 25, 74, 0.6), var(--midnight-black)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') no-repeat center center/cover;
             padding: 0 20px;
             position: relative;
         }
-
         .hero::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 150px;
+            bottom: 0; left: 0; width: 100%; height: 150px;
             background: linear-gradient(to top, var(--midnight-black), transparent);
         }
 
         .issue-tag {
-            font-size: 0.85rem;
-            letter-spacing: 5px;
-            color: var(--abyss-teal);
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            color: var(--accent-gold);
             margin-bottom: 20px;
             text-transform: uppercase;
-            border: 1px solid var(--abyss-teal);
-            padding: 5px 15px;
-            border-radius: 50px;
+            border: 1px solid var(--accent-gold);
+            padding: 6px 12px;
+            border-radius: 2px;
         }
 
         .hero h1 {
-            font-size: 5rem;
+            font-size: 4.5rem;
             margin-bottom: 20px;
-            letter-spacing: 8px;
-            font-weight: 700;
-            background: -webkit-linear-gradient(#fff, var(--abyss-teal));
+            line-height: 1.1;
+            background: -webkit-linear-gradient(#fff, #8c9cb0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
-            max-width: 700px;
+            max-width: 650px;
             margin-bottom: 40px;
             font-weight: 300;
         }
 
-        /* ==========================================================================
-           排版通用组件 (Typography & Layout Components)
-           ========================================================================== */
-        section {
-            padding: 100px 8%;
-            position: relative;
-        }
+        /* 通用组件 */
+        section { padding: 100px 8%; position: relative; }
 
-        .section-header {
-            margin-bottom: 60px;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            letter-spacing: 4px;
-            color: var(--text-main);
-            margin-bottom: 15px;
-        }
-
-        .section-subtitle {
-            font-size: 1rem;
-            color: var(--abyss-teal);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+        .section-header { margin-bottom: 60px; text-align: center; }
+        .section-title { font-size: 2.8rem; color: var(--text-main); margin-bottom: 10px; }
+        .section-subtitle { font-size: 0.9rem; color: var(--abyss-teal); letter-spacing: 3px; text-transform: uppercase; }
 
         .pull-quote {
             font-size: 1.8rem;
             line-height: 1.5;
             color: var(--accent-gold);
+            font-family: 'Playfair Display', serif;
             font-style: italic;
             text-align: center;
             max-width: 800px;
@@ -168,152 +132,101 @@
             position: relative;
         }
 
-        .pull-quote::before, .pull-quote::after {
-            content: '"';
-            font-size: 3rem;
-            color: rgba(212, 175, 55, 0.2);
-            position: absolute;
-        }
-        .pull-quote::before { top: -20px; left: -30px; }
-        .pull-quote::after { bottom: -40px; right: -20px; }
-
-        /* ==========================================================================
-           长篇特写版块 (Feature Articles Layout)
-           ========================================================================== */
+        /* 文章排版 */
         .feature-article {
             display: flex;
             align-items: center;
-            margin-bottom: 120px;
-            gap: 60px;
+            margin-bottom: 100px;
+            gap: 50px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards ease-out;
         }
-
-        .feature-article.reverse {
-            flex-direction: row-reverse;
-        }
+        .feature-article.reverse { flex-direction: row-reverse; }
+        .feature-article:nth-child(odd) { animation-delay: 0.2s; }
+        .feature-article:nth-child(even) { animation-delay: 0.4s; }
 
         .feature-visual {
             flex: 1;
-            height: 500px;
+            height: 450px;
             border-radius: 4px;
-            background-color: var(--cosmic-grey);
-            position: relative;
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
-        .feature-visual::before {
-            content: 'VISUAL ASSET PLACEHOLDER';
-            color: rgba(255,255,255,0.2);
-            font-style: italic;
-            letter-spacing: 2px;
+        .feature-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
         }
+        .feature-article:hover .feature-visual img { transform: scale(1.05); }
 
-        /* 模拟各项目的光影质感 */
-        .vis-deepland { background: linear-gradient(135deg, var(--void-blue), var(--marine-cyan)); }
-        .vis-astro { background: linear-gradient(135deg, #0f2027, #2c5364); }
-        .vis-snow { background: linear-gradient(135deg, #a8c0ff, #3f2b96); }
-        .vis-ocean { background: linear-gradient(135deg, #021B79, #0575E6); }
-
-        .feature-text {
-            flex: 1;
-        }
-
-        .feature-text h3 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--text-main);
-        }
-
-        .feature-text h4 {
-            font-size: 1.1rem;
-            color: var(--abyss-teal);
-            margin-bottom: 25px;
-            font-weight: 400;
-        }
-
-        .feature-text p {
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            text-align: justify;
-        }
+        .feature-text { flex: 1; padding: 0 20px; }
+        .feature-text h4 { color: var(--abyss-teal); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+        .feature-text h3 { font-size: 2.2rem; margin-bottom: 20px; color: var(--text-main); line-height: 1.2; }
+        .feature-text p { color: var(--text-muted); margin-bottom: 20px; text-align: justify; font-size: 0.95rem; }
 
         .feature-meta {
             margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
             display: flex;
-            gap: 20px;
+            gap: 30px;
         }
+        .meta-item span { display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 5px; }
+        .meta-item strong { font-size: 1rem; font-weight: 400; color: var(--text-main); font-family: 'Playfair Display', serif; }
 
-        .meta-item span {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--abyss-teal);
-            text-transform: uppercase;
-        }
-
-        .meta-item strong {
-            font-size: 1.1rem;
-            font-weight: normal;
-        }
-
-        /* ==========================================================================
-           活动日历与跨界 (Cross-Over Events Grid)
-           ========================================================================== */
+        /* 活动卡片 */
         .events-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
         .event-card {
             background: var(--cosmic-grey);
             padding: 40px 30px;
-            border-top: 3px solid var(--abyss-teal);
-            transition: transform 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-
         .event-card:hover {
             transform: translateY(-10px);
-            background: rgba(64, 143, 154, 0.1);
+            border-color: var(--abyss-teal);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-
-        .event-date {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-            font-family: monospace;
-            letter-spacing: 1px;
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 3px; height: 100%;
+            background: var(--abyss-teal);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
-
-        .event-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
+        .event-card:hover::before { opacity: 1; }
 
         .event-partner {
             display: inline-block;
-            padding: 4px 10px;
-            background: rgba(255,255,255,0.05);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--accent-gold);
-            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 4px 10px;
+            border-radius: 2px;
             margin-bottom: 20px;
         }
+        .event-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; font-family: monospace; }
+        .event-card h3 { font-size: 1.4rem; margin-bottom: 15px; line-height: 1.4; color: #fff; }
+        .event-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
 
-        /* ==========================================================================
-           票务与结语 (Ticketing & Footer)
-           ========================================================================== */
+        /* 票务与页脚 */
         .ticketing-section {
             background-color: var(--void-blue);
             background-image: radial-gradient(circle at top right, rgba(64, 143, 154, 0.2), transparent 50%);
             text-align: center;
         }
-
         .ticket-box {
             max-width: 800px;
             margin: 0 auto;
@@ -322,12 +235,8 @@
             background: rgba(5, 6, 10, 0.4);
             backdrop-filter: blur(10px);
         }
-
-        .ticket-box h2 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-        }
-
+        .ticket-box h2 { font-size: 2.8rem; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+        
         .btn {
             display: inline-block;
             padding: 16px 45px;
@@ -340,8 +249,8 @@
             margin-top: 40px;
             transition: all 0.3s;
             text-transform: uppercase;
+            border: 1px solid var(--abyss-teal);
         }
-
         .btn:hover {
             background-color: #fff;
             box-shadow: 0 0 30px rgba(64, 143, 154, 0.6);
@@ -356,20 +265,24 @@
             letter-spacing: 1px;
         }
 
-        /* 响应式调整 */
+        /* 动画与响应式 */
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         @media (max-width: 1024px) {
             .feature-article, .feature-article.reverse { flex-direction: column; }
-            .feature-visual { width: 100%; height: 400px; }
-            .events-grid { grid-template-columns: 1fr 1fr; }
+            .feature-visual { width: 100%; height: 350px; }
+            .hero h1 { font-size: 3.5rem; }
         }
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            .events-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .ticket-box { padding: 40px 20px; }
+            .ticket-box h2 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
-
     <header>
         <div class="logo">DEEP <span>JOURNAL</span></div>
         <nav>
@@ -383,7 +296,7 @@
     <div class="hero">
         <div class="issue-tag">Issue 01 · 2026 创刊号</div>
         <h1>重塑地理边界</h1>
-        <p>上天下海，驭雪逐浪。在这里，我们打破感官的固有疆域，翻开深境运动岛与上海天文馆、耀雪世界、海昌海洋公园共同书写的临港全新探索指南。</p>
+        <p>上天下海，驭雪逐浪。在这里，我们打破感官的固有疆域，翻开 DEEPark 与上海天文馆、耀雪世界、海昌海洋公园共同书写的临港全新探索指南。</p>
     </div>
 
     <section id="editor" style="background-color: var(--cosmic-grey);">
@@ -392,7 +305,7 @@
             <div class="section-subtitle">Letter from the Editor</div>
         </div>
         <p style="max-width: 800px; margin: 0 auto; text-align: justify; font-size: 1.1rem; color: var(--text-muted); column-count: 2; column-gap: 40px;">
-            每一座伟大的城市，都需要一块留白，去承载人们对极致体验的向往。临港，正是上海的这块留白。过去几年，我们见证了天文馆的落成、海洋公园的繁荣以及室内滑雪场的崛起。而现在，随着“深境运动岛 (DEEPisland)”的加入，这片区域补齐了最后一块拼图——向内的深度探索。<br><br>
+            每一座伟大的城市，都需要一块留白，去承载人们对极致体验的向往。临港，正是上海的这块留白。过去几年，我们见证了天文馆的落成、海洋公园的繁荣以及室内滑雪场的崛起。而现在，随着“DEEPark”的加入，这片区域补齐了最后一块拼图——向内的深度探索。<br><br>
             《DEEP JOURNAL》的创刊，并非仅仅是为了宣传单一的项目，而是为了提出一种全新的“集群化”目的地概念。当我们把仰望星空的深邃、挑战深渊的勇气、跨越季节的冰雪与敬畏生命的海洋连接在一起时，临港不再只是几个景点的集合，它变成了一个具有强大引力的“体验宇宙”。这份电子杂志，就是你进入这个宇宙的数字密钥。
         </p>
         <div class="pull-quote">
@@ -406,28 +319,35 @@
             <div class="section-subtitle">The Four Pillars of Exploration</div>
         </div>
 
+        <!-- 1. DEEPark -->
         <article class="feature-article">
-            <div class="feature-visual vis-deepland">
-                </div>
+            <div class="feature-visual">
+                <!-- ⚠️ 请确保您上传的图片名为 deepark.png -->
+                <img src="deepark.png" alt="DEEPark 深境公园">
+            </div>
             <div class="feature-text">
                 <h4>01 / 极限深度与运动磁场</h4>
-                <h3>深境运动岛 · DEEPisland</h3>
-                <p>从最初的“Deep Sphere”概念迭代至如今的“DEEPisland”，项目案名的演变本身就是一场关于空间认知的进化。它不再仅仅是一个深潜的容器，而是一座悬浮于都市边缘、汇聚高能复合运动的“岛屿”。</p>
-                <p>其建筑设计语言充满张力：主体外立面提取了品牌首字母“D”与“L”的形态，环形结构如同层层下潜的深渊，而波浪状的悬挑翼楼则打破了重力的束缚。在这里，24米的亚洲顶尖深水池是核心的能量场，周围环绕着攀岩、冲浪等多元运动矩阵。通过极致的“迪普蓝”视觉色彩系统引导，游客从踏入大厅的那一刻起，便完成了一次从城市喧嚣向内心理智与沉静的过渡。</p>
+                <h3>深境公园 · DEEPark</h3>
+                <p>从最初的“Deep Sphere”概念迭代至如今的“DEEPark”，项目案名的演变本身就是一场关于空间认知的进化。它不再仅仅是一个深潜的容器，而是一座悬浮于都市边缘、汇聚高能复合运动的“深境场域”。</p>
+                <p>其建筑设计语言充满张力：主体外立面提取了“Deep”与“Park”的双重意象，环形结构如同层层下潜的深渊，而波浪状的悬挑翼楼则打破了重力的束缚。在这里，24米的亚洲顶尖深水池是核心的能量场，周围环绕着攀岩、冲浪等多元运动矩阵。通过极致的“迪普蓝”视觉色彩系统引导，游客从踏入大厅的那一刻起，便完成了一次从城市喧嚣向内心理智与沉静的过渡。</p>
                 <div class="feature-meta">
                     <div class="meta-item"><span>核心看点</span><strong>24M 阶梯式深潜池</strong></div>
-                    <div class="meta-item"><span>空间美学</span><strong>D&L 几何与流线建筑</strong></div>
+                    <div class="meta-item"><span>空间美学</span><strong>深境场域与流线建筑</strong></div>
                 </div>
             </div>
         </article>
 
+        <!-- 2. 上海天文馆 -->
         <article class="feature-article reverse">
-            <div class="feature-visual vis-astro"></div>
+            <div class="feature-visual">
+                <!-- ⚠️ 请确保您上传的图片名为 Planet.png -->
+                <img src="Planet.png" alt="上海天文馆">
+            </div>
             <div class="feature-text">
                 <h4>02 / 凝视光年之外</h4>
                 <h3>上海天文馆</h3>
                 <p>作为全球建筑面积最大的天文馆，它的存在本身就是一部凝固的宇宙史诗。没有一条直线的设计，完美隐喻了天体运行的轨道与引力波。圆洞天窗、倒转穹顶和球幕影院三个标志性形体，构成了一个巨大的天文仪器。</p>
-                <p>当游客穿梭于“家园”、“宇宙”、“征程”三大展区，空间的动线规划巧妙地将人类的渺小感与求知欲无限放大。这是临港“向外探索”的极致象征，与 DEEPisland 的“向内探索”形成了完美的哲学对仗。</p>
+                <p>当游客穿梭于“家园”、“宇宙”、“征程”三大展区，空间的动线规划巧妙地将人类的渺小感与求知欲无限放大。这是临港“向外探索”的极致象征，与 DEEPark 的“向内探索”形成了完美的哲学对仗。</p>
                 <div class="feature-meta">
                     <div class="meta-item"><span>空间设计</span><strong>无直线天体轨道隐喻</strong></div>
                     <div class="meta-item"><span>探索维度</span><strong>宏观宇宙与时间尺度</strong></div>
@@ -435,8 +355,12 @@
             </div>
         </article>
 
+        <!-- 3. 耀雪世界 -->
         <article class="feature-article">
-            <div class="feature-visual vis-snow"></div>
+            <div class="feature-visual">
+                <!-- ⚠️ 请确保您上传的图片名为 Snowworld.png -->
+                <img src="Snowworld.png" alt="耀雪冰雪世界">
+            </div>
             <div class="feature-text">
                 <h4>03 / 打破维度的冰雪绿洲</h4>
                 <h3>耀雪冰雪世界</h3>
@@ -449,66 +373,97 @@
             </div>
         </article>
 
-        <article class="feature-article reverse" style="margin-bottom: 0;">
-            <div class="feature-visual vis-ocean"></div>
-            <div class="feature-text">
-                <h4>04 / 地球的蓝色心跳</h4>
+        <!-- 4. 海昌海洋公园 -->
+        <article class="feature-article reverse">
+            <div class="feature-visual">
+                <!-- ⚠️ 请确保您上传的图片名为 Ocean park.png -->
+                <img src="Ocean park.png" alt="海昌海洋公园">
+            </div>
+            <div class="feature-text>
+                <h4>04 / 生命与深渊的对话</h4>
                 <h3>海昌海洋公园</h3>
-                <p>如果说深境 DEEPLAND 让人体验水的深度，那么海昌海洋公园则展示了水之中的磅礴生机。这里不仅是极地与海洋生物的展示窗口，更是濒危物种繁育与海洋生态保护的重镇。</p>
-                <p>虎鲸剧场的水下看台、海底隧道的全景视窗，通过精巧的视线规划，最大程度消解了人与海洋生物的隔阂。在整个临港文旅集群中，海昌承担了连接“生命”与“情感”的柔软角色，为硬核的运动与科创探索，注入了不可或缺的自然温度。</p>
+                <p>作为临港最早的探索地标，海昌海洋公园不仅展现了生物的多样性，更构建了一个连接人类与极地、深海的桥梁。从虎鲸的壮丽游弋到南极企鹅的憨态可掬，这里通过沉浸式的剧场设计与超大亚克力展窗，消弭了物种间的隔阂。</p>
+                <p>其核心建筑“人鱼海湾”与周边游乐设施构成了一个庞大的蓝色叙事空间，让每一位步入其中的游客都能感受到海洋那令人敬畏的生命律动。它是临港“生命教育”的核心策源地。</p>
                 <div class="feature-meta">
-                    <div class="meta-item"><span>核心价值</span><strong>海洋生态保育与繁育</strong></div>
-                    <div class="meta-item"><span>空间交互</span><strong>沉浸式水下视线规划</strong></div>
+                    <div class="meta-item"><span>生命广度</span><strong>全球极地海洋生物矩阵</strong></div>
+                    <div class="meta-item"><span>核心场域</span><strong>深海沉浸式多维剧场</strong></div>
                 </div>
             </div>
         </article>
     </section>
 
-    <section id="crossover" style="background-color: var(--midnight-black); border-top: 1px solid rgba(255,255,255,0.05);">
+    <section id="crossover" style="background-color: var(--midnight-black);">
         <div class="section-header">
-            <h2 class="section-title">社群联动 · 跨界探索季</h2>
-            <div class="section-subtitle">Synergistic Community Events</div>
-            <p style="color: var(--text-muted); max-width: 600px; margin: 20px auto 0;">打破单一设施的孤岛效应，我们通过精心策划的跨界主题，将四个地标的社群紧密链接，创造绝无仅有的叠加体验。</p>
+            <h2 class="section-title">2026 联合特企</h2>
+            <div class="section-subtitle">Cross-Border Collaboration</div>
         </div>
-
+        
         <div class="events-grid">
             <div class="event-card">
-                <div class="event-partner">DEEPisland × 上海天文馆</div>
-                <div class="event-date">AUG 2026 / 联合企划</div>
-                <h3>星海重逢：<br>陨石展与失重夜潜</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">白天在天文馆近距离观测陨石坑，探讨宇宙失重环境；夜晚移步深境运动岛，在 24米深潜池中体验无重力悬浮。完成双重打卡的探险者，将获得限量版“星渊联名钛金铭牌”。</p>
+                <div class="event-partner">DEEPark × 上海天文馆</div>
+                <div class="event-date">2026.06.21 - 07.15</div>
+                <h3>「引力深渊」光影艺术展</h3>
+                <p>在24米深水池底部投射实时星空影像，体验在“宇宙深处”浮潜的失重错觉。</p>
             </div>
 
             <div class="event-card">
-                <div class="event-partner">DEEPisland × 耀雪世界</div>
-                <div class="event-date">NOV 2026 / 极限挑战</div>
-                <h3>冰火交锋：<br>临港极限 24 小时铁人赛</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">为硬核运动社群打造。上午在耀雪世界完成高级黑道速降与障碍赛，下午转战深境运动岛进行室内冲浪与憋气潜水挑战。挑战人类体能与温差适应力的双重极限。</p>
+                <div class="event-partner">DEEPark × 耀雪世界</div>
+                <div class="event-date">2026.08.01 - 08.20</div>
+                <h3>「冰与火」极限挑战赛</h3>
+                <p>上午在-5℃的雪道飞驰，下午在30℃的恒温池深潜，挑战感官的极致切换。</p>
             </div>
 
             <div class="event-card">
-                <div class="event-partner">DEEPisland × 海昌海洋公园</div>
-                <div class="event-date">MAY 2026 / 公益与科普</div>
-                <h3>深蓝回声：<br>人鱼共舞与海洋保育月</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">海昌的专业保育员将在深境运动岛的深水池开设“模拟海洋救援”工作坊；同时，深境的资深潜水教练将在海昌的大型水族箱中带来惊艳的无氧自由潜水美人鱼表演。</p>
+                <div class="event-partner">全域联动</div>
+                <div class="event-date">每周末</div>
+                <h3>「四极」探索者勋章计划</h3>
+                <p>打卡临港四大地标，收集限定版数字藏品（NFT），解锁年度“首席探险官”荣誉。</p>
             </div>
         </div>
     </section>
 
     <section id="pass" class="ticketing-section">
         <div class="ticket-box">
-            <div style="color: var(--abyss-teal); font-weight: bold; letter-spacing: 3px; margin-bottom: 20px;">临港文旅官方授权</div>
-            <h2>临港 72 小时全域探索通票</h2>
-            <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
-                告别碎片化的行程规划。一张数字通票，为您缝合一段宏大的旅程。包含 DEEPisland 单次深潜与全天器械使用、天文馆免预约快速通道、耀雪单日无限制滑雪票及海昌海洋公园 VIP 坐席。
+            <div class="issue-tag">Limited Access</div>
+            <h2>临港四极 · 全域通行证</h2>
+            <p style="color: var(--text-main); margin-top: 20px;">
+                持此通票可于48小时内无限次穿梭于 DEEPark、上海天文馆、耀雪世界及海昌海洋公园。
+                包含专属接驳巴士服务及四地联合休息室权益。
             </p>
-            <a href="#" class="btn">获取数字探索通行证</a>
+            <a href="#" class="btn">立即获取通行密钥</a>
+            <div style="margin-top: 30px; font-size: 0.8rem; color: var(--abyss-teal);">
+                * 需提前在“DEEPARK”官方小程序进行实名预约
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 深境运动岛 DEEPisland & DEEP JOURNAL. <br>Design Aesthetic: Deep Blue System / Architecture-Driven Synergies.</p>
+        <div class="logo" style="font-size: 1.2rem; margin-bottom: 20px;">DEEP <span>JOURNAL</span></div>
+        <p>&copy; 2026 DEEPark & Lingang Explorer Group. All Rights Reserved.</p>
+        <p style="margin-top: 10px; opacity: 0.5;">上海·临港 滴水湖畔深境路1号</p>
     </footer>
 
+    <script>
+        // 简单的滚动交互：导航栏变色
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(5, 6, 10, 0.95)';
+                header.style.padding = '15px 5%';
+            } else {
+                header.style.background = 'rgba(5, 6, 10, 0.85)';
+                header.style.padding = '20px 5%';
+            }
+        });
+
+        // 导航激活状态切换
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
